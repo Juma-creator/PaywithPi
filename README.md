@@ -1,10 +1,22 @@
-- 👋 Hi, I’m @Jumataka-creator
-- 👀 I’m interested in ... roaming the world 
-- 🌱 I’m currently learning ...to build Apps,website, social media pages, business, computer programming, forex trading from crypto currency from Dean Malon!
-- 💞️ I’m looking to collaborate on ... variety of projects!
-- 📫 How to reach me ...contact mobile no:0658216873 Email jmbaruku021@gmail.com
+Pay with Pi leading payment app
+Use Pay with pi for the fastest, most secure online and in-store payments! Pay for movie tickets, food, coffee, fashion, gas, and many more in Pay with Pi.
 
-<!---
-Juma-creator/Juma-creator is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+Quick, easy, convenient and secure.
+
+**Send / Receive Payments**
+
+Pay in store or send money to friends. No need to carry cash or worry about loose change!
+
+**Online Top-Ups and Utility Bill Payments**
+
+Top-up your mobile phone, pay your utility and internet bills or settle your monthly insurance premiums bills through Pay with Pi.
+
+**Add Money to your Pay with Pi Wallet**
+
+Add money to your Pay with pi app via Pay&Go machines or transfer from multiple online banking apps cash-in at all Banks branches and agent world wide.
+
+**Explore Nearby**
+
+Explore places near you that accept payment through Pay with pi wallet. Cinemas, restaurants, coffee shops, supermarkets, and gas stations are all joining forces with Pay with Pi to make your life more connected and more mobile.
+
+Don’t forget to look out for great deals exclusively for Pay with pi users! Start enjoying the amazing benefits of Pay with Pi. Download it now.
