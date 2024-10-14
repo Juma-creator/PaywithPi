@@ -1,36 +1,51 @@
-function isValidUrl(string) {
-  try {
-    new URL(string);
-    return true;
-  } catch (err) {
-    return false;
-  }
-}
+# WARNING: Commenting after a variable's value DOES NOT WORK in .env files.
+# In other words, don't to this: `FOO=value # this is a comment`.
+# This would give the value "value # this is a comment" to the FOO variable.
+# You need to use single-line comments instead, e.g:
+# ```
+#   # this is a comment:
+#   FOO=value
+# ```
 
-console.log(isValidUrl('https://paywithpi.com')); // true
-console.log(isValidUrl('invalid-url')); // false
-function isValidUrl(string) {
-  const regex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
-  return regex.test(string);
-}
+#
+#
+#
 
-console.log(isValidUrl('https://paywithpi.com')); // true
-console.log(isValidUrl('invalid-url')); // false
+# Frontend app URL and bare domain name:
+FRONTEND_URL=https://api.paywithpi.com
+FRONTEND_DOMAIN_NAME=paywithpi.com
 
-const validator = require('validator');
+# Backend app URL and bare domain name:
+BACKEND_URL=https://backend.paywithpi.com
+BACKEND_DOMAIN_NAME=backend.paywithpi.com
 
-console.log(validator.isURL('https://paywithpi.com')); // true
-console.log(validator.isURL('invalid-url')); // false
 
-function isValidHttpUrl(string) {
-  try {
-    const url = new URL(string);
-    return url.protocol === 'http:' || url.protocol === 'https:';
-  } catch (err) {
-    return false;
-  }
-}
+# Obtain the following 2 values on the Pi Developer Portal (open develop.pi in the Pi Browser).
 
-console.log(isValidHttpUrl('https://paywithpi.com')); // true
-console.log(isValidHttpUrl('ftp://paywithpi.com')); // false
+# Domain validation key:Https://calcu-pi.comf7d8531b796b28a6223d7045dc9e437cc6f1a8b07932db982885dc293f6855d55c8cd09739ab0f2e24b74797ee5dbb5a999eba3e602b0d69304f1c3df0eb6ed0
+DOMAIN_VALIDATION_KEY=Https://paywithpi.com/validation-key.txt
+# Pi Platform API Key:qkyxgarvxnndxhlwg1vw1x7ql2q0bivykfc8zid4ao7jskbv4imimvnn2rft0clr
+PI_API_KEY=Https://paywithpi.com/validation-key.txt
 
+# Generate a random string, or roll your face on the keyboard to fill this value:
+SESSION_SECRET=SAAYNZRFJIHO33RRMRPRQMBJIGBLX2ROGOH2AIUYNMTQDP6OE3QXJ4RN
+
+# MongoDB database connection details:
+MONGODB_DATABASE_NAME=PayWithPiapp
+MONGODB_USERNAME=PayWithPiapp
+MONGODB_PASSWORD=#Miracle2602
+
+
+# This will be prepended to all container names.
+# Changing this will make docker-compose lose track of all your containers.
+# Run `docker-compose down` before changing it.
+COMPOSE_PROJECT_NAME=PaywithPi-app
+
+# Set this to either "development" or "production" (XXX "staging"?):
+ENVIRONMENT=production
+
+# This directory will be used to store all persistent data needed by Docker (using volumes):
+DATA_DIRECTORY=./docker-data
+
+# URL of the Pi Platform API - you should not need to change this.
+PLATFORM_API_URL=https://api.mine.com
