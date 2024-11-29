@@ -1,0 +1,55 @@
+import hashlib
+import time
+
+class Block:
+    def __init__(self, index, timestamp, data, previous_hash):
+        self.index = index
+        self.timestamp = timestamp
+        self.data = data
+        self.previous_hash = previous_hash
+        self.hash = self.calculate_hash()
+
+    def calculate_hash(self):
+        block_string = str(self.index) + str(self.timestamp) + str(self.data) + str(self.previous_hash)
+        return hashlib.sha256(block_string.encode()).hexdigest()
+
+class Blockchain:
+    def __init__(self):
+        self.chain = []
+        self.create_genesis_block()
+
+    def create_genesis_block(self):
+        genesis_block = Block(0, time.time(), "Genesis Block", "0")
+        self.chain.append(genesis_block)
+
+    def add_block(self, data):
+        previous_block = self.chain[-1]
+        new_block = Block(len(self.chain), time.time(), data, previous_block.hash)
+        self.chain.append(new_block)
+
+    def is_chain_valid(self):
+        for i in range(1, len(self.chain)):
+            current_block = self.chain[i]
+            previous_block = self.chain[i-1]
+            if current_block.hash != current_block.calculate_hash():
+                return False
+            if current_block.previous_hash != previous_block.hash:
+                return False
+        return True
+
+# Create a Blockchain
+blockchain = Blockchain()
+
+# Add some blocks to the chain
+blockchain.add_block("Block 1 Data")
+blockchain.add_block("Block 2 Data")
+blockchain.add_block("Block 3 Data")
+
+# Print the blockchain
+for block in blockchain.chain:
+    print("Block {}:".format(block.index))
+    print("Timestamp: {}".format(str(block.timestamp)))
+    print("Data: {}".format(block.data))
+    print("Previous Hash: {}".format(block.previous_hash))
+    print("Hash: {}".format(block.hash))
+    print()
