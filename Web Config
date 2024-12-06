@@ -1,0 +1,38 @@
+sudo apt-get install apache2
+
+sudo apt-get install mysql-server
+
+sudo apt-get install php libapache2-mod-php
+
+/my-website
+  /public
+    - index.html
+  /src
+    - styles
+    - scripts
+  /config
+    - server-config
+http {
+  upstream backend {
+    server backend1.paywithpi.com;
+    server backend2.paywithpi.com;
+  }
+  server {
+    listen 80;
+    location / {
+      proxy_pass http://backend;
+    }
+  }
+}
+
+http {
+  server {
+    listen 80;
+    location / {
+      proxy_cache my_cache;
+      proxy_cache_valid 200 302 10m;
+      proxy_cache_valid 404 1m;
+      proxy_pass http://backend;
+    }
+  }
+}
