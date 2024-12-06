@@ -1,0 +1,19 @@
+p2p-market/
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   └── styles/
+│   └── public/
+├── backend/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   └── utils/
+├── database/
+│   └── migrations/
+├── config/
+│   └── env/
+└── tests/
+    ├── frontend/
+    └── backend/
