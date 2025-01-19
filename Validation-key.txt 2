@@ -1,0 +1,35 @@
+import requests
+
+# Cloudflare API endpoint and authentication
+zone_id = '7784721bab6fbb630fa4045f67de2b3c'
+api_endpoint = f'https://api.cloudflare.com/client/v4/zones/{zone_id}/dns_records'
+api_token = 'wgzuxn4pdezkqgu2bihwortnynjbearrtbqnnkjm9ofxfjk14ksoyoc78e1fkgtu'
+
+# DNS record data
+record_type = 'TXT'
+record_name = '_gh-paywithpi-e.paywithpi.com'
+record_content = 'f7d8531b796b28a6223d7045dc9e437cc6f1a8b07932db982885dc293f6855d55c8cd09739ab0f2e24b74797ee5dbb5a999eba3e602b0d69304f1c3df0eb6ed0'
+record_ttl = 3600
+
+# HTTP headers for authentication
+headers = {
+    'Authorization': f'Bearer {api_token}',
+    'Content-Type': 'application/json'
+}
+
+# DNS record payload
+payload = {
+    'type': record_type,
+    'name': record_name,
+    'content': record_content,
+    'ttl': record_ttl
+}
+
+# Make the API request to add the DNS record
+response = requests.post(api_endpoint, json=payload, headers=headers)
+
+# Check the response
+if response.status_code == 200:
+    print("DNS record added successfully!")
+else:
+    print(f"Failed to add DNS record. Status code: {response.status_code}")
