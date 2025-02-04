@@ -1,0 +1,41 @@
+sudo a2enmod ssl
+
+<VirtualHost *:443>
+    ServerAdmin webmaster@paywithpi.com
+    ServerName paywithpi.com
+    DocumentRoot /var/www/html
+    SSLEngine on
+    SSLCertificateFile /path/to/your/certificate.crt
+    SSLCertificateKeyFile /path/to/your/private.key
+    SSLCertificateChainFile /path/to/your/chainfile.pem
+</VirtualHost>
+
+sudo systemctl restart apache2
+
+server {
+    listen 443 ssl;
+    server_name paywithpi.com;
+    ssl_certificate /path/to/your/certificate.crt;
+    ssl_certificate_key /path/to/your/private.key;
+    ssl_trusted_certificate /path/to/your/chainfile.pem;
+
+    location / {
+        root /var/www/html;
+        index index.html index.htm;
+    }
+}
+
+sudo systemctl restart nginx
+
+<VirtualHost *:80>
+    ServerName paywithpi.com
+    Redirect permanent / https://paywithpi.com/
+</VirtualHost>
+
+
+server {
+    listen 80;
+    server_name paywithpi.com;
+    return 301 https://$host$request_uri;
+}
+
